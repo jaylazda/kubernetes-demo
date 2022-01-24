@@ -1,0 +1,10 @@
+replicaCount: 1
+
+charthello:
+  name: hello-app
+  container:
+    image: "gcr.io/google-samples/hello-app:2.0"
+    port: 8080
+  service:
+    type: LoadBalancer
+    port: 8080

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.charthello.name }}
+  labels:
+    app: {{ .Values.charthello.name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.charthello.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.charthello.name }}
+    spec:
+      containers:
+      - name: {{ .Values.charthello.name }}
+        image: {{ .Values.charthello.container.image }}
+        ports:
+        - containerPort: {{ .Values.charthello.container.port }}

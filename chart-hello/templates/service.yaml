@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.charthello.name }}
+spec:
+  type: {{ .Values.charthello.service.type }}
+  selector:
+    app: {{ .Values.charthello.name }}
+  ports:
+  - port: {{ .Values.charthello.service.port }}
+    targetPort: {{ .Values.charthello.container.port }}
